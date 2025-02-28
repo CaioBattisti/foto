@@ -21,7 +21,16 @@ RightFrame = Frame(jan, width=395, height=300, bg="MIDNIGHTBLUE",relief="raise")
 RightFrame.pack(side=RIGHT)
 
 #adicionar o logo
-Logolabel = Label(LeftFrame, image=logo, bg="MIDNIGHTBLUE")#cria im label para a imgem ao lado
+Logolabel = Label(LeftFrame, image=Logo, bg="MIDNIGHTBLUE")#cria im label para a imgem ao lado
 Logolabel.place(x=50, y=100)#posiciona o label no frame esquerdo
 
 #aicionar campos de usuario e senha
+usuarioLabel = Label(RightFrame, text="Usuario: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para o usuario
+usuarioLabel.place(x=5, y=100)#posiciona o label no frame direito
+usuarioEntry = ttk.Entry(RightFrame, width=30)#cria um campo de entrada para o usuario
+usuarioEntry.place(x=120, y=115)#posiciona o campo de entrada
+
+senhaLabel = Label(RightFrame, text="Senha: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para a senha
+senhaLabel.place(x=5, y=150)#posiciona o label no frame direito
+senhaEntry = ttk.Entry(RightFrame, width=30, show=".")#cria um campo de entrada para a senha
+senhaEntry.place(x=120, y=165)#posiciona o campo de entrada
