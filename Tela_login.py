@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 from tkinter import ttk#importa o modulo de widgets tematicos do tkinter
-from dataclasses import database#importa a classe Database do modulo DataBase
+from dataclasses import Database#importa a classe Database do modulo DataBase
 
 #cria a janela
 jan = Tk()
@@ -41,7 +41,7 @@ def Login():
     senha = senhaEntry.get()
 
 #conectar ao banco de dado
-    db = database()
+    db = Database()
     db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
     VerifiyLogin = db.cursor.fetchone()
 
@@ -72,4 +72,40 @@ def registrar():
     EmailEntry = ttk.Entry(RightFrame, width=30)
     EmailEntry.place(x=120,y=55)
 
-    #
+    #função para registrar no banco de dados
+    def RegistrarnoBanco():
+        nome = NomeEntry.get()
+        Email = EmailEntry.get()
+        usuario = usuarioEntry.get()
+        senha = senhaEntry.get()
+
+        #vefica se todos os campos estão preenchidos
+        if nome == "" or Email == "" or usuario == "" or senha == "":
+            messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
+        else:
+            db = Database()
+            db.RegistrarnoBanco(nome,Email,usuario,senha)
+            messagebox.showinfo("Sucesso","Usuario registrado com Sucesso!")
+
+            #Limpar campos após o registro
+            NomeEntry.delete(0,END)
+            EmailEntry.delete(0,END)
+            usuarioEntry.delete(0,END)
+            senhaEntry.delete(0,END)
+    Register = ttk.Button(RightFrame, text="registrar",width=15, command=RegistrarnoBanco)
+    Register.place(x=150,y=225)
+    #função para voltar a tela de login
+    def VoltarLogin():
+        #removendo widgets de cadastro
+        NomeLabel.place(x=5000)
+        NomeEntry.place(x=5000)
+        EmailLabel.place(x=5000)
+        EmailEntry.place(x=5000)
+        Register.place(x=5000)
+        Voltar.place(x=5000)
+    
+        #trazendo de volta o widgets
+        LoginButton.place(x=150)
+        RegisterButton.place(x=150)
+
+    Voltar = ttk.Button(RightFrame, text="voltar") 
