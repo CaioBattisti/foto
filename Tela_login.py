@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
-from tkinter import ttk#importa o modulo de widgets tematicos do tkinter
-from dataclasses import Database#importa a classe Database do modulo DataBase
+from tkinter import ttk #importa o modulo de widgets tematicos do tkinter
+from dataclasses import Database #importa a classe Database do modulo DataBase
 
 #cria a janela
 jan = Tk()
