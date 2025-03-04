@@ -108,4 +108,11 @@ def registrar():
         LoginButton.place(x=150)
         RegisterButton.place(x=150)
 
-    Voltar = ttk.Button(RightFrame, text="voltar") 
+    Voltar = ttk.Button(RightFrame, text="Voltar",width=15,command=VoltarLogin)
+    Voltar.place(x=150,y=255)
+
+RegisterButton = ttk.Button(RightFrame, text="Registrar",width=15,command=registrar)
+RegisterButton.place(x=150,y=255)
+
+#iniciar o loop principal
+jan.mainloop()
