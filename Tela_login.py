@@ -21,8 +21,8 @@ RightFrame = Frame(jan, width=395, height=300, bg="MIDNIGHTBLUE",relief="raise")
 RightFrame.pack(side=RIGHT)
 
 #adicionar o logo
-Logolabel = Label(LeftFrame, image=Logo, bg="MIDNIGHTBLUE")#cria im label para a imgem ao lado
-Logolabel.place(x=50, y=100)#posiciona o label no frame esquerdo
+#Logolabel = Label(LeftFrame, image=Logo, bg="MIDNIGHTBLUE")#cria im label para a imgem ao lado
+#Logolabel.place(x=50, y=100)#posiciona o label no frame esquerdo
 
 #aicionar campos de usuario e senha
 usuarioLabel = Label(RightFrame, text="Usuario: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para o usuario
