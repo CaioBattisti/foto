@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 from tkinter import ttk #importa o modulo de widgets tematicos do tkinter
-from dataclasses import Database #importa a classe Database do modulo DataBase
+from Database import Database #importa a classe Database do modulo DataBase
 
 #cria a janela
 jan = Tk()
@@ -10,9 +10,7 @@ jan.geometry("600x300")
 jan.configure(background="white")
 jan.resizable(width=False,height=False)
 
-#deixar a tela transparente
-jan.attributes("-alpha, 0.9")
-jan.iconbitmap(default="C:/Users/caio_battisti/Documents/GitHub/foto/logo.png")#carrega a imagem da logo
+#jan.iconbitmap(default="C:/Users/caio_battisti/Documents/GitHub/foto/logo.png")#carrega a imagem da logo
 
 #cria a Frame
 LeftFrame = Frame(jan, width=200, height=300, bg="MIDNIGHTBLUE",relief="raise")#cria a frame a esquerda
