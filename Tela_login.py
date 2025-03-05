@@ -24,7 +24,7 @@ RightFrame.pack(side=RIGHT)
 #Logolabel = Label(LeftFrame, image=Logo, bg="MIDNIGHTBLUE")#cria im label para a imgem ao lado
 #Logolabel.place(x=50, y=100)#posiciona o label no frame esquerdo
 
-#aicionar campos de usuario e senha
+#adicionar campos de usuario e senha
 usuarioLabel = Label(RightFrame, text="Usuario: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para o usuario
 usuarioLabel.place(x=5, y=100)#posiciona o label no frame direito
 usuarioEntry = ttk.Entry(RightFrame, width=30)#cria um campo de entrada para o usuario
