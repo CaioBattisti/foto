@@ -66,15 +66,14 @@ def registrar():
     NomeEntry.place(x=120, y=20)
 
     telefoneLabel = Label(RightFrame, text="telefone:",font=("Century Gothic", 20),bg="MIDNIGHTBLUE",fg="White")
-    telefoneLabel.place(x=5, y=5)
+    telefoneLabel.place(x=5, y=35)
     telefoneEntry = ttk.Entry(RightFrame, width=30)
-    telefoneEntry.place(x=120, y=20)
-
+    telefoneEntry.place(x=130, y=45)
 
     EmailLabel = Label(RightFrame, text="Email:",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")
-    EmailLabel.place(x=5,y=40)
+    EmailLabel.place(x=5,y=70)
     EmailEntry = ttk.Entry(RightFrame, width=30)
-    EmailEntry.place(x=120,y=55)
+    EmailEntry.place(x=85,y=80)
 
     #função para registrar no banco de dados
     def RegistrarnoBanco():
@@ -85,11 +84,11 @@ def registrar():
         senha = senhaEntry.get()
 
         #vefica se todos os campos estão preenchidos
-        if nome == "" or Email == "" or usuario == "" or senha == "":
+        if nome == "" or telefone or Email == "" or usuario == "" or senha == "":
             messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
         else:
             db = Database()
-            db.RegistrarnoBanco(nome,Email,usuario,senha)
+            db.RegistrarnoBanco(nome,telefone,Email,usuario,senha)
             messagebox.showinfo("Sucesso","Usuario registrado com Sucesso!")
 
             #Limpar campos após o registro
