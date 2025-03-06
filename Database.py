@@ -13,8 +13,7 @@ class Database:
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
         usuario1(                    
             idusuario INT AUTO_INCREMENT PRIMARY KEY               
-            nome TEXT (255),
-            telefone TEXT (255),              
+            nome TEXT (255),              
             email TEXT (255),               
             usuario TEXT (255),  
             senha TEXT (255)                           
@@ -30,7 +29,7 @@ class Database:
         self.conn.commit()
 
 #Método para alterar os dados de um usuario existente no Banco de Dados
-    def alterar(self,idusuario,nome,email,usuario,senha):
+    def alterar(self,idusuario,nome,telefone,email,usuario,senha):
         self.cursor.execute("UPDATE usuario1 SET nome=%s, email=%s, usuario=%s,senha=%s WHERE idusuario=%s",
                             (nome,email,usuario,senha,idusuario))
         self.conn.commit()
