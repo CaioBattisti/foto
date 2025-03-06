@@ -24,14 +24,14 @@ RightFrame.pack(side=RIGHT)
 
 #adicionar campos de usuario e senha
 usuarioLabel = Label(RightFrame, text="Usuario: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para o usuario
-usuarioLabel.place(x=5, y=150)#posiciona o label no frame direito
+usuarioLabel.place(x=5, y=100)#posiciona o label no frame direito
 usuarioEntry = ttk.Entry(RightFrame, width=30)#cria um campo de entrada para o usuario
-usuarioEntry.place(x=110, y=165)#posiciona o campo de entrada
+usuarioEntry.place(x=120, y=115)#posiciona o campo de entrada
 
 senhaLabel = Label(RightFrame, text="Senha: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para a senha
-senhaLabel.place(x=5, y=185)#posiciona o label no frame direito
+senhaLabel.place(x=5, y=150)#posiciona o label no frame direito
 senhaEntry = ttk.Entry(RightFrame, width=30, show=".")#cria um campo de entrada para a senha
-senhaEntry.place(x=110, y=200)#posiciona o campo de entrada
+senhaEntry.place(x=120, y=165)#posiciona o campo de entrada
 
 #função de login
 def Login():
@@ -40,7 +40,7 @@ def Login():
 
 #conectar ao banco de dado
     db = Database()
-    db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s""",(usuario, senha))
+    db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s and senha = %s""",(usuario, senha))
     VerifiyLogin = db.cursor.fetchone()
 
 #ferificar se o usuario foi encontrado
@@ -66,9 +66,9 @@ def registrar():
     NomeEntry.place(x=120, y=20)
 
     EmailLabel = Label(RightFrame, text="Email:",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")
-    EmailLabel.place(x=5,y=70)
+    EmailLabel.place(x=5,y=40)
     EmailEntry = ttk.Entry(RightFrame, width=30)
-    EmailEntry.place(x=85,y=80)
+    EmailEntry.place(x=120,y=55)
 
     #função para registrar no banco de dados
     def RegistrarnoBanco():
@@ -82,7 +82,7 @@ def registrar():
             messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
         else:
             db = Database()
-            db.RegistrarnoBanco(nome,telefone,Email,usuario,senha)
+            db.RegistrarnoBanco(nome,Email,usuario,senha)
             messagebox.showinfo("Sucesso","Usuario registrado com Sucesso!")
 
             #Limpar campos após o registro
