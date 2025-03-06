@@ -65,11 +65,6 @@ def registrar():
     NomeEntry = ttk.Entry(RightFrame, width=30)
     NomeEntry.place(x=120, y=20)
 
-    telefoneLabel = Label(RightFrame, text="telefone:",font=("Century Gothic", 20),bg="MIDNIGHTBLUE",fg="White")
-    telefoneLabel.place(x=5, y=35)
-    telefoneEntry = ttk.Entry(RightFrame, width=30)
-    telefoneEntry.place(x=130, y=45)
-
     EmailLabel = Label(RightFrame, text="Email:",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")
     EmailLabel.place(x=5,y=70)
     EmailEntry = ttk.Entry(RightFrame, width=30)
@@ -78,13 +73,12 @@ def registrar():
     #função para registrar no banco de dados
     def RegistrarnoBanco():
         nome = NomeEntry.get()
-        telefone = telefoneEntry.get()
         Email = EmailEntry.get()
         usuario = usuarioEntry.get()
         senha = senhaEntry.get()
 
         #vefica se todos os campos estão preenchidos
-        if nome == "" or telefone or Email == "" or usuario == "" or senha == "":
+        if nome == "" or Email == "" or usuario == "" or senha == "":
             messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
         else:
             db = Database()
@@ -93,7 +87,6 @@ def registrar():
 
             #Limpar campos após o registro
             NomeEntry.delete(0,END)
-            telefoneEntry.delete(0,END)
             EmailEntry.delete(0,END)
             usuarioEntry.delete(0,END)
             senhaEntry.delete(0,END)
@@ -104,8 +97,6 @@ def registrar():
         #removendo widgets de cadastro
         NomeLabel.place(x=5000)
         NomeEntry.place(x=5000)
-        telefoneLabel(x=10000)
-        telefoneEntry(x=10000)
         EmailLabel.place(x=10000)
         EmailEntry.place(x=10000)
         Register.place(x=5000)
