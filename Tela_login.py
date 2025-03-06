@@ -104,10 +104,10 @@ def registrar():
         #removendo widgets de cadastro
         NomeLabel.place(x=5000)
         NomeEntry.place(x=5000)
-        telefoneLabel(x=5000)
-        telefoneEntry(x=5000)
-        EmailLabel.place(x=5000)
-        EmailEntry.place(x=5000)
+        telefoneLabel(x=10000)
+        telefoneEntry(x=10000)
+        EmailLabel.place(x=10000)
+        EmailEntry.place(x=10000)
         Register.place(x=5000)
         Voltar.place(x=5000)
     
