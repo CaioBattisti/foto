@@ -29,7 +29,7 @@ class Database:
         self.conn.commit()
 
 #Método para alterar os dados de um usuario existente no Banco de Dados
-    def alterar(self,idusuario,nome,telefone,email,usuario,senha):
+    def alterar(self,idusuario,nome,email,usuario,senha):
         self.cursor.execute("UPDATE usuario1 SET nome=%s, email=%s, usuario=%s,senha=%s WHERE idusuario=%s",
                             (nome,email,usuario,senha,idusuario))
         self.conn.commit()
