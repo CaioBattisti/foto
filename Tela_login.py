@@ -24,14 +24,14 @@ RightFrame.pack(side=RIGHT)
 
 #adicionar campos de usuario e senha
 usuarioLabel = Label(RightFrame, text="Usuario: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para o usuario
-usuarioLabel.place(x=5, y=100)#posiciona o label no frame direito
+usuarioLabel.place(x=5, y=150)#posiciona o label no frame direito
 usuarioEntry = ttk.Entry(RightFrame, width=30)#cria um campo de entrada para o usuario
-usuarioEntry.place(x=120, y=115)#posiciona o campo de entrada
+usuarioEntry.place(x=110, y=165)#posiciona o campo de entrada
 
 senhaLabel = Label(RightFrame, text="Senha: ",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")#cria um albel para a senha
-senhaLabel.place(x=5, y=150)#posiciona o label no frame direito
+senhaLabel.place(x=5, y=185)#posiciona o label no frame direito
 senhaEntry = ttk.Entry(RightFrame, width=30, show=".")#cria um campo de entrada para a senha
-senhaEntry.place(x=120, y=165)#posiciona o campo de entrada
+senhaEntry.place(x=110, y=200)#posiciona o campo de entrada
 
 #função de login
 def Login():
@@ -65,6 +65,12 @@ def registrar():
     NomeEntry = ttk.Entry(RightFrame, width=30)
     NomeEntry.place(x=120, y=20)
 
+    telefoneLabel = Label(RightFrame, text="telefone:",font=("Century Gothic", 20),bg="MIDNIGHTBLUE",fg="White")
+    telefoneLabel.place(x=5, y=5)
+    telefoneEntry = ttk.Entry(RightFrame, width=30)
+    telefoneEntry.place(x=120, y=20)
+
+
     EmailLabel = Label(RightFrame, text="Email:",font=("Century Gothic",20),bg="MIDNIGHTBLUE",fg="White")
     EmailLabel.place(x=5,y=40)
     EmailEntry = ttk.Entry(RightFrame, width=30)
@@ -73,6 +79,7 @@ def registrar():
     #função para registrar no banco de dados
     def RegistrarnoBanco():
         nome = NomeEntry.get()
+        telefone = telefoneEntry.get()
         Email = EmailEntry.get()
         usuario = usuarioEntry.get()
         senha = senhaEntry.get()
@@ -87,6 +94,7 @@ def registrar():
 
             #Limpar campos após o registro
             NomeEntry.delete(0,END)
+            telefoneEntry.delete(0,END)
             EmailEntry.delete(0,END)
             usuarioEntry.delete(0,END)
             senhaEntry.delete(0,END)
@@ -97,6 +105,8 @@ def registrar():
         #removendo widgets de cadastro
         NomeLabel.place(x=5000)
         NomeEntry.place(x=5000)
+        telefoneLabel(x=5000)
+        telefoneEntry(x=5000)
         EmailLabel.place(x=5000)
         EmailEntry.place(x=5000)
         Register.place(x=5000)

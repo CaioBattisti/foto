@@ -13,7 +13,8 @@ class Database:
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
         usuario1(                    
             idusuario INT AUTO_INCREMENT PRIMARY KEY               
-            nome TEXT (255),               
+            nome TEXT (255),
+            telefone TEXT (255),              
             email TEXT (255),               
             usuario TEXT (255),  
             senha TEXT (255)                           
