@@ -23,7 +23,7 @@ class Database:
     print("Conectando ao Banco de Dados")
 
 #Método para registrar um novo usuário no Banco de Dados
-    def RegistrarnoBanco(self,nome,email,usuario,senha):
+    def RegistrarNoBanco(self,nome,email,usuario,senha):
         self.cursor.execute("INSERT INTO usuario1 (nome,email,usuario,senha) VALUES (%s,%s,%s,%s)",
                             (nome,email,usuario,senha))
         self.conn.commit()
