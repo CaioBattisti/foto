@@ -82,7 +82,7 @@ def registrar():
             messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
         else:
             db = Database()
-            db.RegistrarnoBanco(nome,Email,usuario,senha)
+            db.RegistrarNoBanco(nome,Email,usuario,senha)
             messagebox.showinfo("Sucesso","Usuario registrado com Sucesso!")
 
             #Limpar campos após o registro
