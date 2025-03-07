@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 from tkinter import ttk #importa o modulo de widgets tematicos do tkinter
-from Database import Database #importa a classe Database do modulo DataBase
+from DataBase import Database #importa a classe Database do modulo DataBase
 
 #cria a janela
 jan = Tk()
@@ -40,7 +40,9 @@ def Login():
 
 #conectar ao banco de dado
     db = Database()
-    db.cursor.execute("""SELECT * FROM usuario1 WHERE usuario = %s and senha = %s""",(usuario, senha))
+    db.cursor.execute("""
+    SELECT * FROM usuario1 
+    WHERE usuario = %s and senha = %s""",(usuario, senha))
     VerifiyLogin = db.cursor.fetchone()
 
 #ferificar se o usuario foi encontrado
@@ -90,8 +92,8 @@ def registrar():
             EmailEntry.delete(0,END)
             usuarioEntry.delete(0,END)
             senhaEntry.delete(0,END)
-    Register = ttk.Button(RightFrame, text="registrar",width=15, command=RegistrarnoBanco)
-    Register.place(x=150,y=225)
+        Register = ttk.Button(RightFrame, text="registrar",width=15, command=RegistrarNoBanco)
+        Register.place(x=150,y=225)
     #função para voltar a tela de login
     def VoltarLogin():
         #removendo widgets de cadastro
