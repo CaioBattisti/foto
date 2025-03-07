@@ -7,7 +7,7 @@ class Database:
             host ="localhost",
             user ="root", 
             password ="",
-            Database ="caioBattisti_db" 
+            Database ="caiobattisti_db" 
         )
         self.cursor = self.conn.cursor()
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
