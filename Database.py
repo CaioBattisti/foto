@@ -3,14 +3,15 @@ import mysql.connector
 class Database:
     def __init__(self):
         #conecta ao banco de dados
-      self.conn = mysql.connector.connect(
-      host ="localhost",
-      user ="root", 
-      password ="",
-      Database ="caiobattisti_db" 
+        return mysql.connector.connect(
+      MYSQL_HOST ="localhost",
+      MYSQL_USER ="root", 
+      MYSQL_PASSWORD ="",
+      MYSLQ_DATABASE ="caiobattisti_db" 
       )
-      self.cursor = self.conn.cursor()
-      self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
+        
+    self.cursor = self.conn.cursor()
+    self.cursor.execute('''CREATE TABLE IF NOT EXISTS 
         usuario1(                    
             idusuario INT AUTO_INCREMENT PRIMARY KEY               
             nome TEXT (255),                            
@@ -18,7 +19,7 @@ class Database:
             email TEXT (255),  
             senha TEXT (255)                           
         );''')
-      self.conn.commit()
+    self.conn.commit()
 
     print("Conectando ao Banco de Dados")
 
@@ -46,4 +47,4 @@ class Database:
         
 #Método chamado quando a instancia da classe é destruida
     def __del__(self):
-      self.conn.close()
+        self.conn.close()
