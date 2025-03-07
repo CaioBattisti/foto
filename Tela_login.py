@@ -73,12 +73,11 @@ def registrar():
     EmailEntry.place(x=120,y=55)
 
     #função para registrar no banco de dados
-    def RegistrarnoBanco():
+    def RegistrarNoBanco():
         nome = NomeEntry.get()
         Email = EmailEntry.get()
         usuario = usuarioEntry.get()
         senha = senhaEntry.get()
-
         #vefica se todos os campos estão preenchidos
         if nome == "" or Email == "" or usuario == "" or senha == "":
             messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
@@ -86,15 +85,14 @@ def registrar():
             db = Database()
             db.RegistrarNoBanco(nome,Email,usuario,senha)
             messagebox.showinfo("Sucesso","Usuario registrado com Sucesso!")
-
-            #Limpar campos após o registro
-            NomeEntry.delete(0,END)
-            EmailEntry.delete(0,END)
-            usuarioEntry.delete(0,END)
-            senhaEntry.delete(0,END)
-        Register = ttk.Button(RightFrame, text="registrar",width=15, command=RegistrarNoBanco)
-        Register.place(x=150,y=225)
-    #função para voltar a tela de login
+#Limpar campos após o registro
+        NomeEntry.delete(0,END)
+        EmailEntry.delete(0,END)
+        usuarioEntry.delete(0,END)
+        senhaEntry.delete(0,END)
+    Register = ttk.Button(RightFrame, text="registrar",width=15, command=RegistrarNoBanco)
+    Register.place(x=150,y=225)
+#função para voltar a tela de login
     def VoltarLogin():
         #removendo widgets de cadastro
         NomeLabel.place(x=5000)
@@ -107,7 +105,7 @@ def registrar():
         #trazendo de volta o widgets
         LoginButton.place(x=150)
         RegisterButton.place(x=150)
-
+        
     Voltar = ttk.Button(RightFrame, text="Voltar",width=15,command=VoltarLogin)
     Voltar.place(x=150,y=255)
 
