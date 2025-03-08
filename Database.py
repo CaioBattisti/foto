@@ -10,7 +10,6 @@ def get_connection():
     password=MYSQL_PASSWORD,
     Database=MYSLQ_DATABASE
 )
-
 def create_user(nome,telefone,email,usuario,senha):
     conn=get_connection()
     cursor=conn.cursor()

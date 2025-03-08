@@ -10,7 +10,7 @@ jan.geometry("600x300")
 jan.configure(background="white")
 jan.resizable(width=False,height=False)
 
-#jan.iconbitmap(default="C:/Users/caio_battisti/Documents/GitHub/foto/logo.png")#carrega a imagem da logo
+jan.iconbitmap(default="C:/Users/caio_battisti/Documents/GitHub/foto/logo.png")#carrega a imagem da logo
 
 #cria a Frame
 LeftFrame = Frame(jan, width=200, height=300, bg="MIDNIGHTBLUE",relief="raise")#cria a frame a esquerda
