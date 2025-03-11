@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox #importa o modulo de caixas de mensagem do tkinter
 from tkinter import ttk #importa o modulo de widgets tematicos do tkinter
-from DataBase import Database #importa a classe Database do modulo DataBase
+from DataBase import MYSLQ_DATABASE #importa a classe Database do modulo DataBase
 
 #cria a janela
 jan = Tk()
@@ -39,7 +39,7 @@ def Login():
     senha = senhaEntry.get()
 
 #conectar ao banco de dado
-    db = Database()
+    db = MYSLQ_DATABASE()
     db.cursor.execute("""
     SELECT * FROM usuario1 
     WHERE usuario = %s and senha = %s""",(usuario, senha))
@@ -82,7 +82,7 @@ def registrar():
         if nome == "" or Email == "" or usuario == "" or senha == "":
             messagebox.showerror(title="Erro de registro",message="Preencha todos os campos!")
         else:
-            db = Database()
+            db = MYSLQ_DATABASE()
             db.RegistrarNoBanco(nome,Email,usuario,senha)
             messagebox.showinfo("Sucesso","Usuario registrado com Sucesso!")
 #Limpar campos após o registro
@@ -103,8 +103,9 @@ def registrar():
         Voltar.place(x=5000)
     
         #trazendo de volta o widgets
-        LoginButton.place(x=150)
-        RegisterButton.place(x=150)
+    LoginButton.place(x=150)
+    
+    RegisterButton.place(x=150)
         
     Voltar = ttk.Button(RightFrame, text="Voltar",width=15,command=VoltarLogin)
     Voltar.place(x=150,y=255)
