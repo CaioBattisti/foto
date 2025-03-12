@@ -1,11 +1,11 @@
 from tkinter import *
-from tkinter import messagebox  # Importa o módulo de caixas de mensagem do tkinter
-from tkinter import ttk  # Importa o módulo de widgets temáticos do tkinter
-from DataBase import Database  # Certifique-se de que a classe Database está correta
+from tkinter import messagebox
+from tkinter import ttk
+from DataBase import Database
 
 # Cria a janela
 jan = Tk()
-jan.title("SL Sytens - Painel de Acesso")
+jan.title("SL Systems - Painel de Acesso")
 jan.geometry("600x300")
 jan.configure(background="white")
 jan.resizable(width=False, height=False)
@@ -24,7 +24,7 @@ usuarioEntry.place(x=120, y=115)
 
 senhaLabel = Label(RightFrame, text="Senha: ", font=("Century Gothic", 20), bg="MIDNIGHTBLUE", fg="White")
 senhaLabel.place(x=5, y=150)
-senhaEntry = ttk.Entry(RightFrame, width=30, show="*")  # Usa "*" para ocultar a senha
+senhaEntry = ttk.Entry(RightFrame, width=30, show="*")
 senhaEntry.place(x=120, y=165)
 
 # Função de login
@@ -41,7 +41,7 @@ def Login():
         # Executar a consulta
         cursor.execute("""
         SELECT * FROM usuario1 
-        WHERE usuario = %s AND senha = %s""", (usuario, senha))
+        WHERE usuario = ? AND senha = ?""", (usuario, senha))  # Uso de "?" para SQLite, ajuste para outro banco
         VerifiyLogin = cursor.fetchone()
 
         # Verificar se o usuário foi encontrado
