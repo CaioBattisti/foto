@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
-from DataBase import Database
+from DataBase import get_connection  # Importa a função correta do arquivo DataBase.py
 
 # Cria a janela
 jan = Tk()
@@ -34,14 +34,13 @@ def Login():
 
     try:
         # Conectar ao banco de dados
-        db = Database()
-        conn = db.get_connection()
+        conn = get_connection()  # Usa a função get_connection() para conexão
         cursor = conn.cursor()
 
         # Executar a consulta
         cursor.execute("""
         SELECT * FROM usuario1 
-        WHERE usuario = ? AND senha = ?""", (usuario, senha))  # Uso de "?" para SQLite, ajuste para outro banco
+        WHERE usuario = %s AND senha = %s""", (usuario, senha))  # Para MySQL, usa %s como placeholder
         VerifiyLogin = cursor.fetchone()
 
         # Verificar se o usuário foi encontrado
